@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>移动</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		img{
+			cursor: pointer;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width:200px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<img src="1.jpg" id="imgid">
+</body>
+<script type="text/javascript">
+	imgobj=document.getElementById('imgid');
+	xs=0;
+	xv=20;
+	ys=0;
+	yv=20;
+	document.onkeydown=function(event){
+		kc=event.keyCode;
+		document.title=kc;
+		switch(kc){
+			case 37:
+				xs-=xv;
+				imgobj.style.left=xs+'px';
+				document.body.style.background='#00f';
+				break;
+			case 38:
+				ys-=yv;
+				imgobj.style.top=ys+'px';
+				document.body.style.background='#f0f';
+				break;
+			case 39:
+				xs+=xv;
+				imgobj.style.left=xs+'px';
+				document.body.style.background='#f00';
+				break;
+			case 40:
+				ys+=yv;
+				imgobj.style.top=ys+'px';
+				document.body.style.background='#0f0';
+				break;
+		}
+	}
+</script>
+</html>

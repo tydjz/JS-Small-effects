@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>滑动侧边栏</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#sidebar{
+			width: 230px;
+			height: 480px;
+		}
+		#sidebar>ul>li{
+			position: relative;
+			width: 230px;
+		}
+		#sidebar>ul>li:after{
+			position: absolute;
+			display: block;
+			top: 10px;
+			left: 10px;
+			content: "";
+			border: 8px solid #222d32;
+			border-left-color: #fff;
+		}
+		#sidebar>ul>li>a{
+			display: block;
+			padding: 12px 5px 12px 35px;
+			background: #222d32;
+			line-height: 16px;
+			color: #fff;
+			text-decoration: none;
+			border-left: 3px solid transparent;
+		}
+		#sidebar>ul>li>a:hover{
+			border-left: 3px solid #00ffff;
+		}
+		#sidebar ul .menu li{
+			width: 230px;
+			height: 30px;
+			background: rgba(36,94,117,0.73);
+			text-align: center;
+			color: #fff;
+			cursor: pointer;
+		}
+		#sidebar ul .menu li:hover{
+			background: #368;
+		}
+		#sidebar ul .menu{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="sidebar">
+		<ul>
+			<li>
+				<a href="#">首页</a>
+				<ul class="menu">
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">最新消息</a>
+				<ul class="menu">
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">了解更多</a>
+				<ul class="menu">
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">关于我们</a>
+				<ul class="menu">
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+					<li>new</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+<script type="text/javascript">
+	$("#sidebar>ul>li>a").click(function(){
+		$(this).siblings('ul').slideToggle(300).parents('li').siblings('li').children('menu').slideUp(300);
+	});
+</script>
+</html>

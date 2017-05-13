@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #header{
+            width: 1200px;
+            height: 60px;
+            margin: 0 auto;
+            background: url(1.jpg);
+        }
+        #nav{
+            width: 100%;
+            min-width: 1200px;
+            border-bottom: 1px solid #ff6699;
+            height: 50px;
+            line-height: 50px;
+            background: #fff;
+        }
+        #nav.fixed{
+            position: fixed;
+            top: 0;
+        }
+        #nav ul{
+            width: 1200px;
+            margin: 0 auto;
+            height: 50px;
+        }
+        #nav ul li{
+            list-style: none;
+            float: left;
+            font-size: 16px;
+        }
+        #nav ul li a{
+            color: #000;
+            text-decoration: none;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body style="height:3000px;">
+    <div id="header"></div>
+    <div id="nav">
+        <ul>
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">首页</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            var $window=$(window);
+            var $nav=$('#nav');
+            var navTop=$nav.offset().top+$nav.height();
+            $window.scroll(function(){
+                var scrollTop=$(document).scrollTop();
+                if(scrollTop>=navTop){
+                    if(!$nav.hasClass('fixed')){
+                        $nav.addClass('fixed').css('display','none').slideDown(300);
+                    }
+                }else{
+                    $nav.removeClass('fixed');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
